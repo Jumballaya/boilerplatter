@@ -1,0 +1,38 @@
+####### Example Node Production Dockerfile ##########
+#
+# Step 1: Builder
+FROM node:9-alpine AS builder
+
+# Set workdir and copy over source
+WORKDIR /home/node/app
+COPY . .
+
+# Install dependencies and build files
+RUN npm install && npm run build
+
+#####################################################
+#
+# Step 2: Main Image
+FROM node:9-alpine
+
+# Set NODE_ENV and workdir
+ENV NODE_ENV=production
+WORKDIR /home/node/app
+
+# Copy entrypoint script
+COPY ./entrypoint.sh /
+
+# Copy over package.json and package-lock.json
+COPY ./package* ./
+
+# Install dependencies for production only
+RUN npm install --only=production && npm cache clean --force
+
+# Copy the build artifacts from builder
+COPY --from=builder /home/node/app/build ./build
+
+# Expose ports
+EXPOSE 3000
+
+# Start the app
+CMD ["sh", "/entrypoint.sh"]

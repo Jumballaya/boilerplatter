@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  app:
+    container_name: app
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    volumes:
+      - "./src:/home/node/app/src"
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
+    restart: always
+
+  app_ci:
+    container_name: app_ci
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    volumes:
+      - "./src:/home/node/app/src"
+    environment:
+      - NODE_ENV=test
+    restart: always

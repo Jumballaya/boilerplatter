@@ -1,0 +1,21 @@
+####### Example Node Dev Dockerfile #####################
+FROM node:9-alpine
+
+# Set Workdir
+WORKDIR /home/node/app
+
+# Copy entrypoint script
+COPY ./entrypoint.sh /
+
+# Install dependcies first
+COPY ./package* ./
+RUN npm install && npm cache clean --force
+
+# Copy source
+COPY . .
+
+# Expose ports
+EXPOSE 3000
+
+# Start the app
+CMD ["sh", "/entrypoint.sh"]
