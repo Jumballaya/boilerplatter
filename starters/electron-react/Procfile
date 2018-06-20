@@ -1,0 +1,2 @@
+client: BROWSER=none NODE_ENV=development npm run dev:client
+electron: NODE_ENV=development npm run dev:electron:wait

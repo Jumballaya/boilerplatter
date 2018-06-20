@@ -1,0 +1,51 @@
+{
+  "name": "uploader",
+  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.259.1",
+    "dotenv": "^6.0.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "nf start -p 3000",
+    "clean": "rm -rf build && mkdir build && rm -rf dist && mkdir dist",
+    "test": "react-scripts test --env=jsdom",
+    "build": "npm run clean && npm run build:client && npm run build:electron",
+    "pack": "build --dir",
+    "eject": "react-scripts eject",
+    "postinstall": "install-app-deps",
+    "dev:client": "react-scripts start",
+    "dev:electron": "electron .",
+    "dev:electron:wait": "node src/electron-start",
+    "build:client": "react-scripts build",
+    "build:electron": "build",
+    "lint:js": "eslint .",
+    "format:js": "prettier --config .prettierrc --write ./src/**/*.js*"
+  },
+  "devDependencies": {
+    "electron": "^2.0.2",
+    "electron-builder": "^20.15.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^1.13.5"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "com.electron.s3uploader",
+    "win": {
+      "icon": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+    },
+    "directories": {
+      "buildResources": "public"
+    },
+    "extends": null
+  }
+}
