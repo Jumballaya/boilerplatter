@@ -12,3 +12,8 @@ A collection of boilerplates and starters
     - ESLint
     - Babel for ES6+
     - Testing with Ava
+  * Electron-react
+    - Create-react-app base
+    - Electron, electron-builder
+    - Prettier code formatting
+    - Eslint linting
