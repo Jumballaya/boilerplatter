@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  # Wordpress
+  wordpress:
+    image: wordpress:4.9-php7.0-apache
+    container_name: wordpress
+    restart: always
+    volumes:
+      - ./themes:/var/www/html/wp-content/themes
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./uploads:/var/www/html/wp-content/uploads
+    # - ./%_mytheme_%:/var/www/html/wp-content/themes/%_mytheme_%    specific theme
+    # - ./%_myplugin_%:/var/www/html/wp-content/plugins/%_myplugin_%
+    ports:
+      - 8080:80
+    env_file: .env
+    depends_on:
+      - mysql
+
+  # MySQL
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    volumes:
+      - ./.data:/var/lib/mysql
+    env_file: .env

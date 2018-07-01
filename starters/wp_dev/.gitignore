@@ -1,0 +1,17 @@
+# Environment file
+.env
+
+# Node
+node_modules
+
+# Database
+.data
+
+# Wordpress
+themes/twentyfifteen
+themes/twentyseventeen
+themes/twentysixteen
+themes/index.php
+plugins/akismet
+plugins/hello.php
+plugins/index.php
