@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $1 = "dev" ]; then
+  docker run -d -v $(pwd):/app -w "/app" ruby:2.3-jessie echo "Put your start command here"
+fi
+
+if [ $1 = "test" ]; then
+  docker run -v $(pwd):/app -w "/app" ruby:2.3-jessie ruby tests/*.rb
+fi
