@@ -17,3 +17,18 @@ A collection of boilerplates and starters
     - Electron, electron-builder
     - Prettier code formatting
     - Eslint linting
+  * Python
+    - Basic module setup
+    - Dockrfile to run the python app
+    - Has a requirements.txt
+  * Ruby
+    - Rakefile
+    - Gemspec
+    - Tests
+    - Run tests or the app from the bin/tools script
+  * Wordpress
+    - Development environment
+    - Dockerfile and docker-compose.yml
+  * Go
+    - Makefile with build/run/tests
+    - Dockerfile
