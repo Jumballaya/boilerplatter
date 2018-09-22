@@ -32,3 +32,6 @@ A collection of boilerplates and starters
   * Go
     - Makefile with build/run/tests
     - Dockerfile
+  * Browser-Webpack
+    - Webpack setup to build ES6 files as well as compile css
+    - Webpack dev server for development
