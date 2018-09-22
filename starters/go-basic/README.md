@@ -1,4 +1,4 @@
-# Servo
+# Go Project
 
 Basic Go setup
 
